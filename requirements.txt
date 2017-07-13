@@ -3,6 +3,7 @@ certifi==2017.4.17
 chardet==3.0.4
 idna==2.5
 inflect==0.2.5
+influxdb==4.1.1
 irc==16.0
 jaraco.classes==1.4.1
 jaraco.collections==1.5.1
@@ -12,6 +13,7 @@ jaraco.logging==1.5
 jaraco.stream==1.1.2
 jaraco.text==1.9.2
 more-itertools==3.2.0
+python-dateutil==2.6.1
 pytz==2017.2
 requests==2.18.1
 six==1.10.0

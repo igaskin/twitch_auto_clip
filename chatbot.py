@@ -9,8 +9,11 @@ or in the "license" file accompanying this file. This file is distributed on an 
 '''
 
 import sys
-import irc.bot
 import requests
+import json
+
+import irc.bot
+from influxdb import InfluxDBClient
 
 class TwitchBot(irc.bot.SingleServerIRCBot):
     def __init__(self, username, client_id, token, channel):
@@ -29,7 +32,10 @@ class TwitchBot(irc.bot.SingleServerIRCBot):
         port = 6667
         print 'Connecting to ' + server + ' on port ' + str(port) + '...'
         irc.bot.SingleServerIRCBot.__init__(self, [(server, port, 'oauth:'+token)], username, username)
-        
+
+        # Initialize InfluxDb
+        self.influx = self._influx_init()
+
 
     def on_welcome(self, c, e):
         print 'Joining ' + self.channel
@@ -47,36 +53,92 @@ class TwitchBot(irc.bot.SingleServerIRCBot):
             cmd = e.arguments[0].split(' ')[0][1:]
             print 'Received command: ' + cmd
             self.do_command(e, cmd)
+        if 'PogChamp' in e.arguments[0].split(' '):
+            print 'Recieved Poggeers: \n' + e.arguments[0]
+            json_body = [
+                {
+                    "measurement": "emotes",
+                    "tags": {
+                        "channel": self.channel[1:],
+                        "emote": "PogChamp" # Make this dynamic
+                    },
+                    "fields": {
+                        "value": 1.0
+                    }
+                }
+            ]
+            self.influx.write_points(json_body)
         return
+
+    def _get_emotes(self):
+            # TODO grab those emotes
+
+            # TODO tag the sub ones
+        pass
+
+    def _influx_init(self):
+        db_name = "twitch"
+        channel = self.channel[1:]
+        client = InfluxDBClient('localhost', 8086, 'root', 'root')
+        dbs = client.get_list_database()
+        dbs = [ name['name'] for name in dbs ]
+        # Create the database if it doesn't exist
+        if not db_name in dbs:
+            client.create_database(db_name)
+        client.switch_database(db_name)
+        return client
+
+        pass
+
+    def get_top_games(self):
+        url = "https://api.twitch.tv/kraken/games/top"
+
+        headers = {
+        'client-id': self.client_id,
+        'accept': "application/vnd.twitchtv.v5+json",
+        }
+
+        response = requests.request("GET", url, headers=headers)
+        response = json.loads(response.text)
+        self.top_games = [ data['game']['name'] for data in response['top'] ]
+        print self.top_games
+
+    def get_top_channels(self, game):
+        url = "https://api.twitch.tv/kraken/streams"
+
+        querystring = {"game":game}
+
+        headers = {
+        'client-id': self.client_id,
+        'accept': "application/vnd.twitchtv.v5+json",
+        }
+
+        response = requests.request("GET", url, headers=headers, params=querystring)
+        response = json.loads(response.text)
+        top_channels = [ data['channel']['name'] for data in response['streams'] ]
+        return top_channels
+
+
+    def influx_write(self, body):
+        pass
 
     def do_command(self, e, cmd):
         c = self.connection
 
         # Poll the API to get current game.
-        if cmd == "game":
-            url = 'https://api.twitch.tv/kraken/channels/' + self.channel_id
-            headers = {'Client-ID': self.client_id, 'Accept': 'application/vnd.twitchtv.v5+json'}
-            r = requests.get(url, headers=headers).json()
-            c.privmsg(self.channel, r['display_name'] + ' is currently playing ' + r['game'])
+        # if cmd == "game":
+        #     url = 'https://api.twitch.tv/kraken/channels/' + self.channel_id
+        #     headers = {'Client-ID': self.client_id, 'Accept': 'application/vnd.twitchtv.v5+json'}
+        #     r = requests.get(url, headers=headers).json()
+        #     c.privmsg(self.channel, r['display_name'] + ' is currently playing ' + r['game'])
+        #
+        # # Poll the API the get the current status of the stream
+        # elif cmd == "title":
+        #     url = 'https://api.twitch.tv/kraken/channels/' + self.channel_id
+        #     headers = {'Client-ID': self.client_id, 'Accept': 'application/vnd.twitchtv.v5+json'}
+        #     r = requests.get(url, headers=headers).json()
+        #     c.privmsg(self.channel, r['display_name'] + ' channel title is currently ' + r['status'])
 
-        # Poll the API the get the current status of the stream
-        elif cmd == "title":
-            url = 'https://api.twitch.tv/kraken/channels/' + self.channel_id
-            headers = {'Client-ID': self.client_id, 'Accept': 'application/vnd.twitchtv.v5+json'}
-            r = requests.get(url, headers=headers).json()
-            c.privmsg(self.channel, r['display_name'] + ' channel title is currently ' + r['status'])
-
-        # Provide basic information to viewers for specific commands
-        elif cmd == "raffle":
-            message = "This is an example bot, replace this text with your raffle text."
-            c.privmsg(self.channel, message)
-        elif cmd == "schedule":
-            message = "This is an example bot, replace this text with your schedule text."            
-            c.privmsg(self.channel, message)
-
-        # The command was not recognized
-        else:
-            c.privmsg(self.channel, "Did not understand command: " + cmd)
 
 def main():
     if len(sys.argv) != 5:
@@ -89,6 +151,15 @@ def main():
     channel   = sys.argv[4]
 
     bot = TwitchBot(username, client_id, token, channel)
+    bot.get_top_games()
+    # TODO poll for current top channels
+    # with open('top_channels.txt', 'w') as f:
+    #     for game in bot.top_games:
+    #         print "Top channels for {}".format(game)
+    #         channels = bot.get_top_channels(game)
+    #         for channel in channels:
+    #             f.write(channel + '\n')
+
     bot.start()
 
 if __name__ == "__main__":
