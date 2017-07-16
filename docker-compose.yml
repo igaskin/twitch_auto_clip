@@ -16,3 +16,11 @@ grafana:
   links:
     - influxdb
 
+botnet:
+  image: botnet
+  container_name: botnet
+  environment:
+    - TWITCH_CLIENT_ID=$TWITCH_CLIENT_ID
+    - OAUTH_TOKEN=$OAUTH_TOKEN
+  links:
+    - influxdb

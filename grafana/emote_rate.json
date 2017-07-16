@@ -5,9 +5,10 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "hideControls": true,
+  "hideControls": false,
   "id": 1,
   "links": [],
+  "refresh": "5s",
   "rows": [
     {
       "collapse": false,
@@ -280,9 +281,8 @@
       {
         "allValue": null,
         "current": {
-          "tags": [],
-          "text": "aimbotcalvin",
-          "value": "aimbotcalvin"
+          "text": "nalcs1",
+          "value": "nalcs1"
         },
         "datasource": "InfluxDB",
         "hide": 0,
@@ -292,7 +292,7 @@
         "name": "channel",
         "options": [
           {
-            "selected": true,
+            "selected": false,
             "text": "aimbotcalvin",
             "value": "aimbotcalvin"
           }
@@ -311,8 +311,8 @@
         "allValue": null,
         "current": {
           "tags": [],
-          "text": "PogChamp",
-          "value": "PogChamp"
+          "text": "KappaPride",
+          "value": "KappaPride"
         },
         "datasource": "InfluxDB",
         "hide": 0,
@@ -322,9 +322,439 @@
         "name": "emote",
         "options": [
           {
+            "selected": false,
+            "text": "4Head",
+            "value": "4Head"
+          },
+          {
+            "selected": false,
+            "text": "AMPTropPunch",
+            "value": "AMPTropPunch"
+          },
+          {
+            "selected": false,
+            "text": "BabyRage",
+            "value": "BabyRage"
+          },
+          {
+            "selected": false,
+            "text": "BibleThump",
+            "value": "BibleThump"
+          },
+          {
+            "selected": false,
+            "text": "BigBrother",
+            "value": "BigBrother"
+          },
+          {
+            "selected": false,
+            "text": "BlessRNG",
+            "value": "BlessRNG"
+          },
+          {
+            "selected": false,
+            "text": "BloodTrail",
+            "value": "BloodTrail"
+          },
+          {
+            "selected": false,
+            "text": "BrainSlug",
+            "value": "BrainSlug"
+          },
+          {
+            "selected": false,
+            "text": "BrokeBack",
+            "value": "BrokeBack"
+          },
+          {
+            "selected": false,
+            "text": "BudStar",
+            "value": "BudStar"
+          },
+          {
+            "selected": false,
+            "text": "CarlSmile",
+            "value": "CarlSmile"
+          },
+          {
+            "selected": false,
+            "text": "ChefFrank",
+            "value": "ChefFrank"
+          },
+          {
+            "selected": false,
+            "text": "CoolStoryBob",
+            "value": "CoolStoryBob"
+          },
+          {
+            "selected": false,
+            "text": "CrreamAwk",
+            "value": "CrreamAwk"
+          },
+          {
+            "selected": false,
+            "text": "CurseLit",
+            "value": "CurseLit"
+          },
+          {
+            "selected": false,
+            "text": "DBstyle",
+            "value": "DBstyle"
+          },
+          {
+            "selected": false,
+            "text": "DansGame",
+            "value": "DansGame"
+          },
+          {
+            "selected": false,
+            "text": "DatSheffy",
+            "value": "DatSheffy"
+          },
+          {
+            "selected": false,
+            "text": "DogFace",
+            "value": "DogFace"
+          },
+          {
+            "selected": false,
+            "text": "DoritosChip",
+            "value": "DoritosChip"
+          },
+          {
+            "selected": false,
+            "text": "EleGiggle",
+            "value": "EleGiggle"
+          },
+          {
+            "selected": false,
+            "text": "FailFish",
+            "value": "FailFish"
+          },
+          {
+            "selected": false,
+            "text": "FrankerZ",
+            "value": "FrankerZ"
+          },
+          {
+            "selected": false,
+            "text": "FunRun",
+            "value": "FunRun"
+          },
+          {
+            "selected": false,
+            "text": "GOWSkull",
+            "value": "GOWSkull"
+          },
+          {
+            "selected": false,
+            "text": "GivePLZ",
+            "value": "GivePLZ"
+          },
+          {
+            "selected": false,
+            "text": "HeyGuys",
+            "value": "HeyGuys"
+          },
+          {
+            "selected": false,
+            "text": "InuyoFace",
+            "value": "InuyoFace"
+          },
+          {
+            "selected": false,
+            "text": "Jebaited",
+            "value": "Jebaited"
+          },
+          {
+            "selected": false,
+            "text": "JonCarnage",
+            "value": "JonCarnage"
+          },
+          {
+            "selected": false,
+            "text": "Kappa",
+            "value": "Kappa"
+          },
+          {
             "selected": true,
+            "text": "KappaPride",
+            "value": "KappaPride"
+          },
+          {
+            "selected": false,
+            "text": "KappaRoss",
+            "value": "KappaRoss"
+          },
+          {
+            "selected": false,
+            "text": "Kappu",
+            "value": "Kappu"
+          },
+          {
+            "selected": false,
+            "text": "Keepo",
+            "value": "Keepo"
+          },
+          {
+            "selected": false,
+            "text": "KonCha",
+            "value": "KonCha"
+          },
+          {
+            "selected": false,
+            "text": "Kreygasm",
+            "value": "Kreygasm"
+          },
+          {
+            "selected": false,
+            "text": "MingLee",
+            "value": "MingLee"
+          },
+          {
+            "selected": false,
+            "text": "MrDestructoid",
+            "value": "MrDestructoid"
+          },
+          {
+            "selected": false,
+            "text": "NinjaGrumpy",
+            "value": "NinjaGrumpy"
+          },
+          {
+            "selected": false,
+            "text": "NotLikeThis",
+            "value": "NotLikeThis"
+          },
+          {
+            "selected": false,
+            "text": "OSblob",
+            "value": "OSblob"
+          },
+          {
+            "selected": false,
+            "text": "OSfrog",
+            "value": "OSfrog"
+          },
+          {
+            "selected": false,
+            "text": "OSkomodo",
+            "value": "OSkomodo"
+          },
+          {
+            "selected": false,
+            "text": "OhMyDog",
+            "value": "OhMyDog"
+          },
+          {
+            "selected": false,
+            "text": "OneHand",
+            "value": "OneHand"
+          },
+          {
+            "selected": false,
+            "text": "OpieOP",
+            "value": "OpieOP"
+          },
+          {
+            "selected": false,
+            "text": "PJSalt",
+            "value": "PJSalt"
+          },
+          {
+            "selected": false,
+            "text": "PRChase",
+            "value": "PRChase"
+          },
+          {
+            "selected": false,
             "text": "PogChamp",
             "value": "PogChamp"
+          },
+          {
+            "selected": false,
+            "text": "PunOko",
+            "value": "PunOko"
+          },
+          {
+            "selected": false,
+            "text": "PunchTrees",
+            "value": "PunchTrees"
+          },
+          {
+            "selected": false,
+            "text": "QuadDamage",
+            "value": "QuadDamage"
+          },
+          {
+            "selected": false,
+            "text": "ResidentSleeper",
+            "value": "ResidentSleeper"
+          },
+          {
+            "selected": false,
+            "text": "SMOrc",
+            "value": "SMOrc"
+          },
+          {
+            "selected": false,
+            "text": "SabaPing",
+            "value": "SabaPing"
+          },
+          {
+            "selected": false,
+            "text": "SeemsGood",
+            "value": "SeemsGood"
+          },
+          {
+            "selected": false,
+            "text": "Squid1",
+            "value": "Squid1"
+          },
+          {
+            "selected": false,
+            "text": "Squid2",
+            "value": "Squid2"
+          },
+          {
+            "selected": false,
+            "text": "Squid3",
+            "value": "Squid3"
+          },
+          {
+            "selected": false,
+            "text": "Squid4",
+            "value": "Squid4"
+          },
+          {
+            "selected": false,
+            "text": "StoneLightning",
+            "value": "StoneLightning"
+          },
+          {
+            "selected": false,
+            "text": "SwiftRage",
+            "value": "SwiftRage"
+          },
+          {
+            "selected": false,
+            "text": "TBTacoBag",
+            "value": "TBTacoBag"
+          },
+          {
+            "selected": false,
+            "text": "TTours",
+            "value": "TTours"
+          },
+          {
+            "selected": false,
+            "text": "TakeNRG",
+            "value": "TakeNRG"
+          },
+          {
+            "selected": false,
+            "text": "TearGlove",
+            "value": "TearGlove"
+          },
+          {
+            "selected": false,
+            "text": "TehePelo",
+            "value": "TehePelo"
+          },
+          {
+            "selected": false,
+            "text": "ThankEgg",
+            "value": "ThankEgg"
+          },
+          {
+            "selected": false,
+            "text": "TheIlluminati",
+            "value": "TheIlluminati"
+          },
+          {
+            "selected": false,
+            "text": "TheTarFu",
+            "value": "TheTarFu"
+          },
+          {
+            "selected": false,
+            "text": "ThunBeast",
+            "value": "ThunBeast"
+          },
+          {
+            "selected": false,
+            "text": "TriHard",
+            "value": "TriHard"
+          },
+          {
+            "selected": false,
+            "text": "TwitchLit",
+            "value": "TwitchLit"
+          },
+          {
+            "selected": false,
+            "text": "TwitchRPG",
+            "value": "TwitchRPG"
+          },
+          {
+            "selected": false,
+            "text": "TwitchUnity",
+            "value": "TwitchUnity"
+          },
+          {
+            "selected": false,
+            "text": "VaultBoy",
+            "value": "VaultBoy"
+          },
+          {
+            "selected": false,
+            "text": "VoHiYo",
+            "value": "VoHiYo"
+          },
+          {
+            "selected": false,
+            "text": "VoteNay",
+            "value": "VoteNay"
+          },
+          {
+            "selected": false,
+            "text": "VoteYea",
+            "value": "VoteYea"
+          },
+          {
+            "selected": false,
+            "text": "WutFace",
+            "value": "WutFace"
+          },
+          {
+            "selected": false,
+            "text": "cmonBruh",
+            "value": "cmonBruh"
+          },
+          {
+            "selected": false,
+            "text": "copyThis",
+            "value": "copyThis"
+          },
+          {
+            "selected": false,
+            "text": "imGlitch",
+            "value": "imGlitch"
+          },
+          {
+            "selected": false,
+            "text": "mcaT",
+            "value": "mcaT"
+          },
+          {
+            "selected": false,
+            "text": "pastaThat",
+            "value": "pastaThat"
+          },
+          {
+            "selected": false,
+            "text": "riPepperonis",
+            "value": "riPepperonis"
           }
         ],
         "query": "show tag values with key = emote",
